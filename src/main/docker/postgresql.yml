@@ -1,0 +1,12 @@
+version: '2'
+services:
+    farmerconn-postgresql:
+        container_name: farmerconn-postgresql
+        image: postgres:9.5.4
+        # volumes:
+        #     - ~/volumes/jhipster/FarmerConn/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=FarmerConn
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
