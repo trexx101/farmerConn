@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "paymentId",
+            "otherEntityName": "payment",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orders"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "order",
+            "otherEntityName": "orderData",
+            "otherEntityRelationshipName": "orders"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customers",
+            "otherEntityName": "customers",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "orderDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "shipDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "transactionStatus",
+            "fieldType": "Status",
+            "fieldValues": "NEW,SEALED,PENDING,COMPLETED"
+        },
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "paymentDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20161208170020",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "orders",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl"
+}

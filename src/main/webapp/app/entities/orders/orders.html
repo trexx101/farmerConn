@@ -1,0 +1,72 @@
+<div>
+    <h2>Orders</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="orders.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Orders
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Order Date</span></th>
+                    <th><span>Ship Date</span></th>
+                    <th><span>Transaction Status</span></th>
+                    <th><span>Deleted</span></th>
+                    <th><span>Payment Date</span></th>
+                    <th><span>Payment Id</span></th>
+                    <th><span>Customers</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="orders in vm.orders track by orders.id">
+                    <td><a ui-sref="orders-detail({id:orders.id})">{{orders.id}}</a></td>
+                    <td>{{orders.orderDate | date:'medium'}}</td>
+                    <td>{{orders.shipDate | date:'medium'}}</td>
+                    <td>{{orders.transactionStatus}}</td>
+                    <td>{{orders.deleted}}</td>
+                    <td>{{orders.paymentDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="payment-detail({id:orders.paymentId.id})">{{orders.paymentId.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="customers-detail({id:orders.customers.id})">{{orders.customers.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="orders-detail({id:orders.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="orders.edit({id:orders.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="orders.delete({id:orders.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

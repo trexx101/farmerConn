@@ -1,0 +1,118 @@
+entity Category {
+	categoryName String,
+    description String,
+    picture Blob,
+    active Boolean
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Customers {
+	firstName String,
+    lastName String,
+    login String required,
+    email String,
+    phone String,
+	address1 String,
+    address2 String,
+	postalCode String,
+	city String,
+	stateProvince String,
+    dateEntered ZonedDateTime
+}
+
+entity Supplier {
+	firstName String,
+    lastName String,
+    businessName String,
+    login String required,
+    email String,
+    phone String,
+	address1 String,
+    address2 String,
+	postalCode String,
+	city String,
+	stateProvince String,
+    dateEntered ZonedDateTime
+}
+
+entity Payment {
+	paymentType String required
+}
+
+
+
+/**
+ * The Employee entity.
+ */
+entity Orders {
+    orderDate ZonedDateTime,
+	shipDate ZonedDateTime,
+	transactionStatus Status,
+    deleted Boolean,
+    paymentDate ZonedDateTime
+	
+}
+
+entity Product {
+	productName String,
+    productDescription String,
+	sku String,
+    quantityPerUnit Integer,
+    discount BigDecimal,
+    minOrder Integer,
+    picture Blob,
+    unitPrice BigDecimal
+    
+	
+}
+
+entity OrderData {
+    price BigDecimal,
+    quantity Integer,
+    shipDate ZonedDateTime,
+    billDate ZonedDateTime
+}
+
+
+
+enum Status {
+    NEW, SEALED, PENDING, COMPLETED
+}
+
+
+relationship OneToOne {
+	Product{category} to Category,
+    Product{supplier} to Supplier
+}
+
+relationship OneToOne {
+	Orders{paymentID} to Payment
+}
+
+//relationship ManyToMany {
+	
+//}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	//Supplier{} to Product,
+	Orders{order} to OrderData
+    //Orders{product} to Product
+    
+    	
+}
+
+relationship ManyToOne {
+	Orders{customers} to Customers
+}
+
+
+
+// Set pagination options
+//paginate Orders, OrderData with infinite-scroll
+
+
+// Set service options to all except few
+service all with serviceImpl except Status, OrderData, Category
+

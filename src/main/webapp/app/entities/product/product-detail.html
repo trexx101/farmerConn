@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span>Product</span> {{vm.product.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Product Name</span></dt>
+        <dd>
+            <span>{{vm.product.productName}}</span>
+        </dd>
+        <dt><span>Product Description</span></dt>
+        <dd>
+            <span>{{vm.product.productDescription}}</span>
+        </dd>
+        <dt><span>Sku</span></dt>
+        <dd>
+            <span>{{vm.product.sku}}</span>
+        </dd>
+        <dt><span>Quantity Per Unit</span></dt>
+        <dd>
+            <span>{{vm.product.quantityPerUnit}}</span>
+        </dd>
+        <dt><span>Discount</span></dt>
+        <dd>
+            <span>{{vm.product.discount}}</span>
+        </dd>
+        <dt><span>Min Order</span></dt>
+        <dd>
+            <span>{{vm.product.minOrder}}</span>
+        </dd>
+        <dt><span>Picture</span></dt>
+        <dd>
+            <div ng-if="vm.product.picture">
+                <a ng-click="vm.openFile(vm.product.pictureContentType, vm.product.picture)">open</a>
+                {{vm.product.pictureContentType}}, {{vm.byteSize(vm.product.picture)}}
+            </div>
+        </dd>
+        <dt><span>Unit Price</span></dt>
+        <dd>
+            <span>{{vm.product.unitPrice}}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+            <a ui-sref="category-detail({id:vm.product.category.id})">{{vm.product.category.id}}</a>
+        </dd>
+        <dt><span>Supplier</span></dt>
+        <dd>
+            <a ui-sref="supplier-detail({id:vm.product.supplier.id})">{{vm.product.supplier.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="product-detail.edit({id:vm.product.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

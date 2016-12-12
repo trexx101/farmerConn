@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Order Data</span> {{vm.orderData.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Price</span></dt>
+        <dd>
+            <span>{{vm.orderData.price}}</span>
+        </dd>
+        <dt><span>Quantity</span></dt>
+        <dd>
+            <span>{{vm.orderData.quantity}}</span>
+        </dd>
+        <dt><span>Ship Date</span></dt>
+        <dd>
+            <span>{{vm.orderData.shipDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Bill Date</span></dt>
+        <dd>
+            <span>{{vm.orderData.billDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Orders</span></dt>
+        <dd>
+            <a ui-sref="orders-detail({id:vm.orderData.orders.id})">{{vm.orderData.orders.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="order-data-detail.edit({id:vm.orderData.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

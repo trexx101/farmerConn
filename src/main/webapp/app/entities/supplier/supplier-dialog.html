@@ -1,0 +1,108 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySupplierLabel">Create or edit a Supplier</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.supplier.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.supplier.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                    ng-model="vm.supplier.firstName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                    ng-model="vm.supplier.lastName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_businessName">Business Name</label>
+            <input type="text" class="form-control" name="businessName" id="field_businessName"
+                    ng-model="vm.supplier.businessName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_login">Login</label>
+            <input type="text" class="form-control" name="login" id="field_login"
+                    ng-model="vm.supplier.login"
+                    required />
+            <div ng-show="editForm.login.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.login.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.supplier.email"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.supplier.phone"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_address1">Address 1</label>
+            <input type="text" class="form-control" name="address1" id="field_address1"
+                    ng-model="vm.supplier.address1"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_address2">Address 2</label>
+            <input type="text" class="form-control" name="address2" id="field_address2"
+                    ng-model="vm.supplier.address2"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_postalCode">Postal Code</label>
+            <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+                    ng-model="vm.supplier.postalCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                    ng-model="vm.supplier.city"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_stateProvince">State Province</label>
+            <input type="text" class="form-control" name="stateProvince" id="field_stateProvince"
+                    ng-model="vm.supplier.stateProvince"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dateEntered">Date Entered</label>
+                <div class="input-group">
+                    <input id="field_dateEntered" type="text" class="form-control" name="dateEntered" datetime-picker="{{dateformat}}" ng-model="vm.supplier.dateEntered" is-open="vm.datePickerOpenStatus.dateEntered"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateEntered')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

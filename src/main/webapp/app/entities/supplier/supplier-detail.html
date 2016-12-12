@@ -1,0 +1,67 @@
+
+<div>
+    <h2><span>Supplier</span> {{vm.supplier.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{vm.supplier.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{vm.supplier.lastName}}</span>
+        </dd>
+        <dt><span>Business Name</span></dt>
+        <dd>
+            <span>{{vm.supplier.businessName}}</span>
+        </dd>
+        <dt><span>Login</span></dt>
+        <dd>
+            <span>{{vm.supplier.login}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{vm.supplier.email}}</span>
+        </dd>
+        <dt><span>Phone</span></dt>
+        <dd>
+            <span>{{vm.supplier.phone}}</span>
+        </dd>
+        <dt><span>Address 1</span></dt>
+        <dd>
+            <span>{{vm.supplier.address1}}</span>
+        </dd>
+        <dt><span>Address 2</span></dt>
+        <dd>
+            <span>{{vm.supplier.address2}}</span>
+        </dd>
+        <dt><span>Postal Code</span></dt>
+        <dd>
+            <span>{{vm.supplier.postalCode}}</span>
+        </dd>
+        <dt><span>City</span></dt>
+        <dd>
+            <span>{{vm.supplier.city}}</span>
+        </dd>
+        <dt><span>State Province</span></dt>
+        <dd>
+            <span>{{vm.supplier.stateProvince}}</span>
+        </dd>
+        <dt><span>Date Entered</span></dt>
+        <dd>
+            <span>{{vm.supplier.dateEntered | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="supplier-detail.edit({id:vm.supplier.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

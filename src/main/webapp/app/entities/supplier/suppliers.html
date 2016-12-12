@@ -1,0 +1,78 @@
+<div>
+    <h2>Suppliers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="supplier.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Supplier
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>First Name</span></th>
+                    <th><span>Last Name</span></th>
+                    <th><span>Business Name</span></th>
+                    <th><span>Login</span></th>
+                    <th><span>Email</span></th>
+                    <th><span>Phone</span></th>
+                    <th><span>Address 1</span></th>
+                    <th><span>Address 2</span></th>
+                    <th><span>Postal Code</span></th>
+                    <th><span>City</span></th>
+                    <th><span>State Province</span></th>
+                    <th><span>Date Entered</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="supplier in vm.suppliers track by supplier.id">
+                    <td><a ui-sref="supplier-detail({id:supplier.id})">{{supplier.id}}</a></td>
+                    <td>{{supplier.firstName}}</td>
+                    <td>{{supplier.lastName}}</td>
+                    <td>{{supplier.businessName}}</td>
+                    <td>{{supplier.login}}</td>
+                    <td>{{supplier.email}}</td>
+                    <td>{{supplier.phone}}</td>
+                    <td>{{supplier.address1}}</td>
+                    <td>{{supplier.address2}}</td>
+                    <td>{{supplier.postalCode}}</td>
+                    <td>{{supplier.city}}</td>
+                    <td>{{supplier.stateProvince}}</td>
+                    <td>{{supplier.dateEntered | date:'medium'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="supplier-detail({id:supplier.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="supplier.edit({id:supplier.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="supplier.delete({id:supplier.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
