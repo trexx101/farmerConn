@@ -41,5 +41,45 @@
            timeToLiveSeconds="3600">
     </cache>
 
+    <cache name="com.farmerzone.app.domain.Category"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Customers"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Supplier"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Payment"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Orders"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Orders.orderIds"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Orders.productIds"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Product"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.OrderData"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.farmerzone.app.domain.Orders.orders"
+        timeToLiveSeconds="3600">
+    </cache>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>
