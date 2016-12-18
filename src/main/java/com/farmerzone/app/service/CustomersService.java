@@ -15,7 +15,7 @@ public interface CustomersService {
      * @param customers the entity to save
      * @return the persisted entity
      */
-    Customers save(Customers customers);
+    Customers save(Customers customers);    
 
     /**
      *  Get all the customers.

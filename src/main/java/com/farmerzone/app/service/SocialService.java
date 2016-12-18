@@ -61,6 +61,8 @@ public class SocialService {
         createSocialConnection(user.getLogin(), connection);
         mailService.sendSocialRegistrationValidationEmail(user, providerId);
     }
+    //TODO
+    //handle creation of Customer and Supplier
 
     private User createUserIfNotExist(UserProfile userProfile, String langKey, String providerId) {
         String email = userProfile.getEmail();

@@ -1,6 +1,7 @@
 package com.farmerzone.app.service;
 
 import com.farmerzone.app.domain.Authority;
+import com.farmerzone.app.domain.Customers;
 import com.farmerzone.app.domain.User;
 import com.farmerzone.app.repository.AuthorityRepository;
 import com.farmerzone.app.repository.UserRepository;
@@ -39,6 +40,9 @@ public class UserService {
 
     @Inject
     private AuthorityRepository authorityRepository;
+    
+    @Inject
+    private CustomersService customerService;
 
     public Optional<User> activateRegistration(String key) {
         log.debug("Activating user for activation key {}", key);
@@ -103,6 +107,9 @@ public class UserService {
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
         log.debug("Created Information for User: {}", newUser);
+        
+        createCustomer(newUser);
+
         return newUser;
     }
 
@@ -131,6 +138,9 @@ public class UserService {
         user.setActivated(true);
         userRepository.save(user);
         log.debug("Created Information for User: {}", user);
+        
+        createCustomer(user);
+        
         return user;
     }
 
@@ -144,6 +154,17 @@ public class UserService {
             log.debug("Changed Information for User: {}", u);
         });
     }
+    
+    public void createCustomer(User user){
+    	Customers customer = new Customers();
+        //customer.setFirstName(user.getFirstName());
+        //customer.setLastName(user.getLastName());
+        customer.setEmail(user.getEmail());
+        customer.setLogin("blahblahbla");
+        customer.setDateEntered(user.getCreatedDate());
+       customerService.save(customer);
+    }
+    
 
     public void updateUser(Long id, String login, String firstName, String lastName, String email,
         boolean activated, String langKey, Set<String> authorities) {

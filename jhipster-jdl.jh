@@ -10,30 +10,26 @@ entity Category {
 entity Customers {
 	firstName String,
     lastName String,
-    login String required,
     email String,
     phone String,
 	address1 String,
     address2 String,
 	postalCode String,
 	city String,
-	stateProvince String,
-    dateEntered ZonedDateTime
+	stateProvince String
 }
 
 entity Supplier {
 	firstName String,
     lastName String,
     businessName String,
-    login String required,
     email String,
     phone String,
 	address1 String,
     address2 String,
 	postalCode String,
 	city String,
-	stateProvince String,
-    dateEntered ZonedDateTime
+	stateProvince String
 }
 
 entity Payment {
@@ -43,7 +39,7 @@ entity Payment {
 
 
 /**
- * The Employee entity.
+ * The orders entity.
  */
 entity Orders {
     orderDate ZonedDateTime,
@@ -97,8 +93,8 @@ relationship OneToOne {
 // defining multiple OneToMany relationships with comments
 relationship OneToMany {
 	//Supplier{} to Product,
-	Orders{order} to OrderData
-    //Orders{product} to Product
+	Orders{order} to OrderData,
+    Product{product} to OrderData
     
     	
 }
@@ -114,5 +110,4 @@ relationship ManyToOne {
 
 
 // Set service options to all except few
-service all with serviceImpl except Status, OrderData, Category
-
+service all with serviceImpl except Status
